@@ -33,7 +33,7 @@ function Chat({socket, username, room}) {
 
   return (
     <div className="chat-window">
-      <ChatHeader />
+      <ChatHeader username={username} />
       <ChatBody messageList={messageList} username={username} />
       <ChatFooter
       currentMessage={currentMessage}

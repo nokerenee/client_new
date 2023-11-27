@@ -1,9 +1,9 @@
 import React from "react";
 
-const ChatHeader = () => {
+const ChatHeader = ({username}) => {
     return (
         <div className="chat-header">
-            <p>Live Chat!</p>
+            <p>Live Chat! {username}</p>
         </div>
     );
 }
