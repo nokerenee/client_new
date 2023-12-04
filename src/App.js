@@ -1,3 +1,5 @@
+'use client';
+
 import "./App.css";
 import io from "socket.io-client";
 import React, { useState } from "react";
