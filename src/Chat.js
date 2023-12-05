@@ -1,10 +1,9 @@
-
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import ChatHeader from "./components/ChatHeader";
 import ChatBody from "./components/ChatBody";
 import ChatFooter from "./components/ChatFooter";
 
-function Chat({socket, username, room}) {
+function Chat({ socket, user, room }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
@@ -12,12 +11,12 @@ function Chat({socket, username, room}) {
     if (currentMessage !== "") {
       const messageData = {
         room,
-        author: username,
+        sender:user,
         message: currentMessage,
         time:
-        new Date(Date.now()).getHours() +
-        ":" +
-        new Date(Date.now()).getMinutes(),
+          new Date(Date.now()).getHours() +
+          ":" +
+          new Date(Date.now()).getMinutes(),
       };
 
       await socket.emit("send_message", messageData);
@@ -32,14 +31,20 @@ function Chat({socket, username, room}) {
     });
   }, [socket]);
 
+  useEffect(() => {
+    socket.emit("get_messages", room, (messages) => {
+      setMessageList(messages);
+    });
+  }, [room, socket]);
+
   return (
     <div className="chat-window">
-      <ChatHeader username={username} />
-      <ChatBody messageList={messageList} username={username} />
+      <ChatHeader username={user.name} />
+      <ChatBody messageList={messageList} username={user.name} />
       <ChatFooter
-      currentMessage={currentMessage}
-      setCurrentMessage={setCurrentMessage}
-      sendMessage={sendMessage}
+        currentMessage={currentMessage}
+        setCurrentMessage={setCurrentMessage}
+        sendMessage={sendMessage}
       />
     </div>
   );
