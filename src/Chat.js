@@ -35,7 +35,7 @@ function Chat({ socket, user, room }) {
     socket.emit("get_messages", room, (messages) => {
       setMessageList(messages);
     });
-  }, []);
+  }, [room, socket]);
 
   return (
     <div className="chat-window">
