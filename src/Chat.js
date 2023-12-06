@@ -11,7 +11,7 @@ function Chat({ socket, user, room }) {
     if (currentMessage !== "") {
       const messageData = {
         room,
-        sender:user,
+        sender: user,
         message: currentMessage,
         time:
           new Date(Date.now()).getHours() +
@@ -27,20 +27,23 @@ function Chat({ socket, user, room }) {
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
+      // todo: check why this effect isn't running
+      console.log("received data: ", data);
       setMessageList((list) => [...list, data]);
     });
   }, [socket]);
 
   useEffect(() => {
     socket.emit("get_messages", room, (messages) => {
+      console.log("get message", messages);
       setMessageList(messages);
     });
-  }, [room, socket]);
+  }, []);
 
   return (
     <div className="chat-window">
-      <ChatHeader username={user.name} />
-      <ChatBody messageList={messageList} username={user.name} />
+      <ChatHeader room={room} />
+      <ChatBody messageList={messageList} username={user.username} />
       <ChatFooter
         currentMessage={currentMessage}
         setCurrentMessage={setCurrentMessage}
