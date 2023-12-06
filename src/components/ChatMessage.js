@@ -4,7 +4,7 @@ const ChatMessage = ({ messageContent, username }) => {
   return (
     <div
       className="message"
-      id={username === messageContent.author ? "you" : "other"}
+      id={username === messageContent.sender.username ? "you" : "other"}
     >
       <div>
         <div className="message-content">
@@ -12,7 +12,7 @@ const ChatMessage = ({ messageContent, username }) => {
         </div>
         <div className="message-meta">
           <p id="time">{messageContent.time}</p>
-          <p id="author">{messageContent.author}</p>
+          <p id="author">{messageContent.sender.username}</p>
         </div>
       </div>
     </div>

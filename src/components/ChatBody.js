@@ -3,6 +3,7 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import ChatMessage from "./ChatMessage";
 
 const ChatBody = ({ messageList, username }) => {
+ 
   return (
     <div className="chat-body">
       <ScrollToBottom className="message-container">

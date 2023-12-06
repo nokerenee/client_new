@@ -12,10 +12,11 @@ function App() {
   const [room, setRoom] = useState("");
   const [showChat, setShowChat] = useState(false);
   const [user, setUser] = useState();
-
+console.log("appp")
   const joinRoom = () => {
     if (username !== "" && room !== "") {
-      socket.emit("join_room", {username, room}, (data)=>{
+      socket.emit("join_room", {username, room}, (data, response)=>{
+        console.log('join',data,response);
     
         setRoom(data.room);
         setUser(data.user);
