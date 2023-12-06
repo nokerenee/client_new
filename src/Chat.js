@@ -24,14 +24,14 @@ function Chat({ socket, user, room }) {
       setCurrentMessage("");
     }
   };
-  useEffect(()=>{
+
+  useEffect(() => {
     socket.on("receive_message", (data) => {
       // todo: check why this effect isn't running
       console.log("received data: ", data);
       setMessageList((list) => [...list, data]);
     });
-  },
-  [socket])
+  }, [socket]);
 
   useEffect(() => {
     socket.emit("get_messages", room, (messages) => {
