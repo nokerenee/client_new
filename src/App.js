@@ -32,7 +32,7 @@ console.log("appp")
           <h3>Join Chat!</h3>
           <input
             type="text"
-            placeholder="John..."
+            placeholder="Jane..."
             onChange={(event) => {
               setUsername(event.target.value);
             }}

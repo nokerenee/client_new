@@ -1,7 +1,7 @@
 .App {
   width: 100vw;
   height: 100vh;
-  background: #fff;
+  background: mistyrose;
   color: #212121;
   font-family: "Open Sans", sans-serif;
   display: grid;
@@ -27,7 +27,7 @@ body {
   width: 210px;
   height: 40px;
   margin: 7px;
-  border: 2px solid #43a047;
+  border: 2px solid darkolivegreen;
   border-radius: 5px;
   padding: 5px;
   font-size: 16px;
@@ -41,9 +41,10 @@ body {
   border-radius: 5px;
   padding: 5px;
   font-size: 16px;
-  background: #43a047;
+  background-color: darkolivegreen;
   color: #fff;
   cursor: pointer;
+  transition: color 0.3s ease-in-out; /* Smooth transition on hover */
 }
 
 .joinChatContainer button:hover {
@@ -120,6 +121,7 @@ body {
 
 #you .message-content {
   justify-content: flex-end;
+  background-color: darkseagreen;
 }
 
 #you .message-meta {
@@ -133,7 +135,7 @@ body {
 
 #other .message-content {
   justify-content: flex-start;
-  background-color: cornflowerblue;
+  background-color: skyblue;
 }
 
 #other .message-meta {
@@ -181,10 +183,12 @@ body {
   outline: none;
   font-size: 25px;
   color: lightgray;
+  background-color: white;
 }
 
 .chat-window .chat-footer button:hover {
-  color: #43a047;
+  color: salmon;
+  transition: color 0.3s ease-in-out;
 }
 .hide {
   opacity: 0 !important;
