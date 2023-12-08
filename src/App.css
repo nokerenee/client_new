@@ -1,12 +1,34 @@
 .App {
   width: 100vw;
   height: 100vh;
-  background: #fff;
   color: #212121;
   font-family: "Open Sans", sans-serif;
   display: grid;
   place-items: center;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.chatIcon {
+  color: #71259b;
+  display: block;
+  margin: auto;
+  font-size: 100px!important;
+}
+
 body {
   margin: 0%;
   padding: 0%;
@@ -17,17 +39,31 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  left: 50%;
+  padding: 10vmin;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .joinChatContainer h3 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  font-weight:100;
+  margin: 0;
+  padding-bottom: 2rem;
+  color:#651391;
 }
+
 .joinChatContainer input {
   width: 210px;
   height: 40px;
   margin: 7px;
-  border: 2px solid #43a047;
+  border: 2px solid #71259b;
   border-radius: 5px;
   padding: 5px;
   font-size: 16px;
@@ -41,18 +77,17 @@ body {
   border-radius: 5px;
   padding: 5px;
   font-size: 16px;
-  background: #43a047;
-  color: #fff;
+  background: #71259b;
+  color: #ffffff;
   cursor: pointer;
 }
 
 .joinChatContainer button:hover {
-  background: #2e7d32;
+  background: #3a2677;
 }
 
 .chat-window {
   width: 300px;
-  height: 420px;
 }
 
 .chat-window p {
@@ -60,7 +95,9 @@ body {
 }
 .chat-window .chat-header {
   height: 45px;
-  border-radius: 6px;
+  width: 450px;
+  border-top-left-radius: 80px 80px;
+  border-top-right-radius: 80px 80px;
   background: #263238;
   position: relative;
   cursor: pointer;
@@ -74,7 +111,8 @@ body {
 }
 
 .chat-window .chat-body {
-  height: calc(450px - (45px + 70px));
+  height: 550px;
+  width: 448px;
   border: 1px solid #263238;
   background: #fff;
 
@@ -156,6 +194,7 @@ body {
   border: 1px solid #263238;
   border-top: none;
   display: flex;
+  width: 448px;
 }
 
 .chat-window .chat-footer input {
@@ -181,6 +220,7 @@ body {
   outline: none;
   font-size: 25px;
   color: lightgray;
+  background-color: #71259b;
 }
 
 .chat-window .chat-footer button:hover {
@@ -189,3 +229,4 @@ body {
 .hide {
   opacity: 0 !important;
 }
+

@@ -6,11 +6,11 @@ const ChatFooter = ({ currentMessage, setCurrentMessage, sendMessage }) => {
       <input
         type="text"
         value={currentMessage}
-        placeholder="Hey YOU..."
+        placeholder="Message..."
         onChange={(event) => {
           setCurrentMessage(event.target.value);
         }}
-        onKeyPress={(event) => {
+        onKeyDown={(event) => {
           event.key === "Enter" && sendMessage();
         }}
       />
