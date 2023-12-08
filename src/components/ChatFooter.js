@@ -1,5 +1,7 @@
 import React from "react";
 
+// responsible for rendering footer of the chat window
+
 const ChatFooter = ({ currentMessage, setCurrentMessage, sendMessage }) => {
   return (
     <div className="chat-footer">
@@ -17,6 +19,6 @@ const ChatFooter = ({ currentMessage, setCurrentMessage, sendMessage }) => {
       <button onClick={sendMessage}>&#9658;</button>
     </div>
   );
-}
+};
 
 export default ChatFooter;

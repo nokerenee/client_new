@@ -1,5 +1,7 @@
 import React from "react";
 
+// responsible for rendering an individual chat message
+
 const ChatMessage = ({ messageContent, username }) => {
   return (
     <div
@@ -17,6 +19,6 @@ const ChatMessage = ({ messageContent, username }) => {
       </div>
     </div>
   );
-}
+};
 
 export default ChatMessage;
